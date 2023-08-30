@@ -100,6 +100,25 @@ fn init(handle: InitHandle) {
     	handle.add_class::<ColorChain>();
 }
 
+struct NewFuture(Result<(), Box<dyn std::error::Error + 'static>>);
+
+impl ToVariant for NewFuture {
+    fn to_variant(&self) -> Variant {todo!()}
+}
+
+struct NewStructFieldType(StructFieldType);
+
+impl OwnedToVariant for NewStructFieldType {
+    fn owned_to_variant(self) -> Variant {
+        todo!()
+    }
+}
+
+impl Future for NewFuture {
+    type Output = NewStructFieldType;
+    fn poll(self: Pin<&mut Self>, _: &mut std::task::Context<'_>) -> Poll<<Self as futures::Future>::Output> { todo!() }
+}
+
 #[derive(NativeClass, Debug, ToVariant, FromVariant)]
 #[inherit(Node)]
 struct ColorChain;
@@ -217,7 +236,7 @@ To update variables on the gdscript side, Rust async functions need to "call bac
 
 Much of your effort will involve converting between Godot's data types and Ethers' data types.  This will require some experimentation on your part, as Godot has trouble passing large unsigned integers, and sometimes the blockchain will give you values in hex that you will need to decode.  EVM blockchains also cannot handle decimals, you will need to convert decimal values into whole numbers, then convert back to decimal once the blockchain operation has been completed.
 
-It is easiest to pass u64 and strings into Rust, and easiest to pass strings back into gdscript.
+It is easiest to pass u64 and strings into Rust, and easiest to pass strings (as Variants) back into gdscript.
 
 
 ```
