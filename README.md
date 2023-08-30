@@ -91,9 +91,9 @@ impl ColorChain {
 godot_init!(init);
 ```
 ### 6. 
-Once you've written your library, compile it with `cargo build`.  You'll find the compiled library file in target/debug (.dylib for Mac, .so for Linux, and .dll for Windows).  Drag it into your Godot project's main folder, then import it into Godot with the following steps:
+Once you've written your library, compile it with `cargo build`.  You'll find the compiled Rust library file in target/debug (.dylib for Mac, .so for Linux, and .dll for Windows).  Drag it into your Godot project's main folder, then import it into Godot with the following steps:
 
-* Create a GDNative library resource, and link it to your compiled library file under the target system.
+* Create a GDNative library resource, and link it to your compiled Rust library file under the target system.
 
 <p align="center">
 <img width="1157" alt="create gdnlib" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/3e5f17b6-5c36-4da0-af64-1d5d87db604f">
