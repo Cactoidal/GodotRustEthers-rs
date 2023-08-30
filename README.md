@@ -379,9 +379,11 @@ NewFuture(Ok(()))
 
 ## ColorChain - a sample implementation:
 
+<img width="1021" alt="colorchain" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/52aab5b0-c7a0-4555-be55-168dcd5a3674">
+
 I've provided a small project as an example.  To use it, [clone the ColorChain folder](https://github.com/Cactoidal/GodotRustEthers-rs/tree/main/ColorChain), then compile the Rust library.  Drag the compiled library out of target/debug into the main ColorChain folder, import it into the game by [following the steps above](https://github.com/Cactoidal/GodotRustEthers-rs/tree/main#6), then run the game.
 
-Copy the address that is generated for you, mine some gas from the Sepolia PoW faucet (this may take around 10 minutes), then choose a color for the cube and submit the transaction.
+Copy the address that is generated for you, mine some gas from the [Sepolia PoW faucet](https://sepolia-faucet.pk910.de/) (this may take around 10 minutes), then choose a color for the cube and submit the transaction.
 
 The cube's color will change to whichever color has been submitted.  Because every copy of this sample game uses the same smart contract, every player will see the same cube, and other players will see the color you picked (and can overwrite the color if they wish!)
 
