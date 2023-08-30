@@ -104,7 +104,7 @@ Once you've written your library, compile it with `cargo build`.  You'll find th
 </p>
 
 
-* Create a GDNative script, and link it to a class defined in your library.
+* Create a GDNative script, and link it to a class defined in your Rust library.
 
 <p align="center">
 <img width="362" alt="create nativescript" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/1f8e5ab3-0901-49c5-882f-87f80471988e">
@@ -114,7 +114,7 @@ Once you've written your library, compile it with `cargo build`.  You'll find th
 <i>The Class Name needs to match the name of the class you defined in your compiled Rust library.</i>
 </p>
 
-* Now link the script to the .gdnlib library itself.
+* Now link the script to the .gdnlib resource.
 
 <p align="center">
 <img width="289" alt="set library" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/058e9560-c018-454f-a1e0-bb350a758951">
