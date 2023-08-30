@@ -90,8 +90,8 @@ impl ColorChain {
 
 godot_init!(init);
 ```
-
-6. Once you've written your library, compile it with `cargo build`.  You'll find the compiled library file in target/debug (.dylib for Mac, .so for Linux, and .dll for Windows).  Drag it into your Godot project's main folder, then import it into Godot with the following steps:
+### 6. 
+Once you've written your library, compile it with `cargo build`.  You'll find the compiled library file in target/debug (.dylib for Mac, .so for Linux, and .dll for Windows).  Drag it into your Godot project's main folder, then import it into Godot with the following steps:
 
 * Create a GDNative library resource, and link it to your compiled library file under the target system.
 
@@ -303,7 +303,7 @@ Please note that you will need gas to send write transactions.  Testnet gas is a
 
 ## ColorChain - a sample implementation:
 
-I've provided a small project as an example.  To use it, clone this repository, then compile the Rust library.  Drag the compiled library into res://, import it into the Godot project by following the steps above, then run the game.
+I've provided a small project as an example.  To use it, clone this repository, then compile the Rust library.  Drag the compiled library out of target/debug into the main ColorChain folder, import it into the game by following the steps above, then run the game.
 
 Copy the address that is generated for you, mine some gas from the Sepolia PoW faucet (this may take around 10 minutes), then choose a color for the cube and submit the transaction.
 
