@@ -240,7 +240,7 @@ You can use a webwallet like [Metamask](https://metamask.io) and a browser IDE l
 
 
 
-### Areas of Interest
+## Areas of Interest
 
 
 The following things are outside the scope of this guide, but are of personal interest for their potential application in games:
