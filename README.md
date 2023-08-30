@@ -44,6 +44,7 @@ gdnative = { version = "0.11", features = ["async"] }
 ethers = "2.0.4"
 ethers-contract = "2.0.4"
 tokio = { version = "1.28.1", features = ["full"] }
+serde = "1.0.163"
 ```
 
 
