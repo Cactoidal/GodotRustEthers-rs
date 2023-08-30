@@ -251,7 +251,7 @@ The following things are outside the scope of this guide, but are of personal in
 
 
 * use of oracles
-to trustlessly execute code too complex for the blockchain (or containing secret information), and the use of distributed databases to trustlessly store data.
+to trustlessly execute code too complex for the blockchain (or containing secret information), and the use of distributed databases to trustlessly store large amounts of game data.
 
 
 * And finally,
