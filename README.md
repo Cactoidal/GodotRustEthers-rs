@@ -57,7 +57,7 @@ hex = "0.4.3"
 openssl = "0.10.52"
 ```
 
-5. Set up lib.rs by declaring classes and their methods, then initialize.  Because we're using tokio to handle the async nature of Ethers-rs, you will also need to create a pool for executing runtimes, [as is helpfully described in the Godot Rust docs](https://godot-rust.github.io/book/gdnative/recipes/async-tokio.html).
+5. Set up lib.rs by declaring classes and their methods, then initialize.  Because we're using tokio to handle the async nature of Ethers-rs, you will also need to create a pool for executing tasks, [as is helpfully described in the Godot Rust docs](https://godot-rust.github.io/book/gdnative/recipes/async-tokio.html).
 
 ```
 use gdnative::{prelude::*, core_types::ToVariant};
