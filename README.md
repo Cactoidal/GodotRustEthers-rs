@@ -323,7 +323,7 @@ When exporting your game, you will need to compile the Godot Rust library for th
 
 ### Lag
 
-Every read and write causes the game to lag while it waits for a response from the RPC node.  Performance would be much better if transactions were sent by a separate thread, and if their outcomes were transmitted back to the main thread using a Signal or some other means.  Currently, I estimate the time it will take for a transaction to confirm, then have the game periodically check the blockchain until it observes a state change.  Advice on this front would be much appreciated.
+Every read and write causes the game to lag while it waits for a response from the RPC node.  Performance would be much better if transactions did not block the main thread, and if their outcomes were transmitted back to the main thread using a Signal or some other means.  Currently, I estimate the time it will take for a transaction to confirm, then have the game periodically check the blockchain until it observes a state change.  Advice on this front would be much appreciated.
 
 ### Receipts
 
