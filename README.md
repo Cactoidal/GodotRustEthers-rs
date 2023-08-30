@@ -50,7 +50,7 @@ tokio = { version = "1.28.1", features = ["full"] }
 Useful utilities you may wish to add:
 
 ```
-serde_json = "1.0.163"
+serde_json = "1.0.96"
 hex = "0.4.3"
 openssl = "0.10.52"
 ```
