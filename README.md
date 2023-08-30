@@ -186,9 +186,9 @@ Certainly this is a long-range goal, but games in the future could contain embed
 
 A smart contract is a modular, on-chain program that runs on demand.  The chief benefits of a smart contract are its shared, immutable state (serverless sharing) and its immutable rules (serverless validation).
 
-In the context of EVM (Ethereum Virtual Machine) blockchains, smart contracts are typically written in the Solidity programming language.
+In the context of EVM (Ethereum Virtual Machine) blockchains, smart contracts are typically written in the [Solidity programming language](https://docs.soliditylang.org/en/v0.8.21/).
 
-It is highly recommended that you not only read the documentation, but read about the many spectacular failures that have occurred over time, so that you may avoid making the same mistakes.
+It is highly recommended that you not only [read the documentation](https://docs.soliditylang.org/en/v0.8.21/), but read about the many spectacular failures that have occurred over time, so that you may avoid making the same mistakes.
 
 Once written, smart contracts are deployed on-chain, where their functions can be called by anyone who has permissions to call them.  All characteristics of a contract — its variables, its functions, its permissions — are fixed at the moment of deployment, and cannot be changed unless the contract has been coded to allow specific changes.
 
