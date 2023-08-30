@@ -366,7 +366,7 @@ Please note that you will need gas to send write transactions.  Testnet gas is a
 ```
 #[method]
 #[tokio::main]
-async fn send_color(key: PoolArray<u8>, chain_id: u64, chain_color_contract: GodotString, rpc: GodotString, _r: u8, _g: u8, _b: u8) -> NewFuture {
+async fn send_color(key: PoolArray<u8>, chain_id: u64, chain_color_contract: GodotString, rpc: GodotString, _r: u64, _g: u64, _b: u64) -> NewFuture {
 
 let vec = &key.to_vec();
 
