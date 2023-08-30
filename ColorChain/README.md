@@ -2,6 +2,8 @@
 
 To try it, clone this repository, then compile the Rust library.  Drag the compiled library out of target/debug into the main ColorChain folder, import it into the game by [following these steps](https://github.com/Cactoidal/GodotRustEthers-rs/tree/main#6), then run the game.
 
-Copy the address that is generated for you, mine some gas from the Sepolia PoW faucet (this may take around 10 minutes), then choose a color for the cube and submit the transaction.
+Copy the address that is generated for you, mine some gas from the [Sepolia PoW faucet](https://sepolia-faucet.pk910.de/) (this may take around 10 minutes), then choose a color for the cube and submit the transaction.
 
 The cube's color will change to whichever color has been submitted.  Because every copy of this sample game uses the same smart contract, every player will see the same cube, and other players will see the color you picked (and can overwrite the color if they wish!)
+
+<img width="1021" alt="colorchain" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/f86efbdc-798f-4145-8905-bb57536152aa">
