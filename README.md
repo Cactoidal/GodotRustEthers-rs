@@ -126,11 +126,16 @@ It is conceivably possible to import an externally-generated private key into th
 
 ## Using the Private Key
 
-Ethers-rs can instantiate a wallet from an array of 32 bytes.  By reading the bytes as a buffer from the keystore file, and passing the buffer as a string to our Godot Rust library, the game can perform blockchain operations:
+Ethers-rs can instantiate a wallet from an array of 32 bytes.  By reading the bytes as a buffer from the keystore file, and passing the buffer as a PoolArray<u8> to our Godot Rust library, the game can perform blockchain operations:
 
-get_address example
-get_balance example
-
+```
+func get_address():
+	var file = File.new()
+	file.open("user://keystore", File.READ)
+	var content = file.get_buffer(32)
+	user_address = Ethers.get_address(content)
+	file.close()
+```
 
 
 
@@ -138,6 +143,54 @@ get_balance example
 
 Ethers-rs is capable of many things, and I invite you to [read the documentation](https://docs.rs/ethers/latest/ethers/) to learn more about what you can do.  First, I'll go over some basic functions, such as retrieving the player's address and gas balance:
 
+```
+#[method]
+fn get_address(key: PoolArray<u8>) -> GodotString {
+
+let vec = &key.to_vec();
+
+let keyset = &vec[..]; 
+ 
+let prewallet : LocalWallet = LocalWallet::from_bytes(&keyset).unwrap();
+
+let wallet: LocalWallet = prewallet.with_chain_id(Chain::Sepolia);
+
+let address = wallet.address();
+
+let address_string = address.encode_hex();
+
+let key_slice = match address_string.char_indices().nth(*&0 as usize) {
+    Some((_pos, _)) => (&address_string[26..]).to_string(),
+    None => "".to_string(),
+    };
+
+let return_string: GodotString = format!("0x{}", key_slice).into();
+
+return_string
+
+}
+
+#[method]
+#[tokio::main]
+async fn get_balance(user_address: GodotString, rpc: GodotString, ui_node: Ref<Control>) -> NewFuture {
+
+let preaddress: &str = &user_address.to_string();
+
+let address: Address = preaddress.parse().unwrap();
+
+let provider = Provider::<Http>::try_from(rpc.to_string()).expect("could not instantiate HTTP Provider");
+
+let balance = &provider.get_balance(address, None).await.unwrap().as_u128().to_string().to_variant();
+
+let node: TRef<Control> = unsafe { ui_node.assume_safe() };
+
+unsafe {
+    node.call("set_balance", &[balance.clone()])
+};
+
+NewFuture(Ok(()))
+}
+```
 
 
 Note that you can use Ethers-rs to interact with any EVM chain, simply by passing the chain ID and an RPC node URL.
