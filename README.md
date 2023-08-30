@@ -170,7 +170,7 @@ Once you've written your library, compile it with `cargo build`.  You'll find th
 <i>Under Library, load the .gdnlib resource.</i>
 </p>
 
-* Now go to Autoload in Project Settings, and enable the GDNative (.gdns) script you just created.
+* Go to Autoload in Project Settings, and enable the GDNative (.gdns) script you just created.
 
 <p align="center">
 <img width="893" alt="set autoload" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/acb0946d-9cda-4129-b653-7da532ad19cb">
@@ -180,7 +180,7 @@ Once you've written your library, compile it with `cargo build`.  You'll find th
 <i>You will probably need to quit and relaunch the Godot editor for this change to take effect.</i>
 </p>
 
-7. You can now call your Godot Rust library from anywhere by using the name of the class and the name of the method you want to call.  For example:
+7. You can now call your Godot Rust library from anywhere in gdscript by using the name of the class and the name of the method you want to call.  For example:
 
 ```
 func refresh_balance():
