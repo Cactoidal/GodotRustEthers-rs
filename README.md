@@ -303,7 +303,7 @@ Please note that you will need gas to send write transactions.  Testnet gas is a
 
 ## ColorChain - a sample implementation:
 
-I've provided a small project as an example.  To use it, clone this repository, then compile the Rust library.  Drag the compiled library out of target/debug into the main ColorChain folder, import it into the game by following the steps above, then run the game.
+I've provided a small project as an example.  To use it, clone this repository, then compile the Rust library.  Drag the compiled library out of target/debug into the main ColorChain folder, import it into the game by [following the steps above](https://github.com/Cactoidal/GodotRustEthers-rs/tree/main#6), then run the game.
 
 Copy the address that is generated for you, mine some gas from the Sepolia PoW faucet (this may take around 10 minutes), then choose a color for the cube and submit the transaction.
 
