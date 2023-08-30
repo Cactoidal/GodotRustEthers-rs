@@ -299,7 +299,7 @@ You can interact with a specific smart contract by providing its ABI to your God
 
 ```
 abigen!(
-    ChainColorABI,
+    ColorChainABI,
     "./ColorChain.json",
     event_derives(serde::Deserialize, serde::Serialize)
 );
@@ -335,7 +335,7 @@ let contract_address: Address = chain_color_address.to_string().parse().unwrap()
 
 let client = SignerMiddleware::new(provider, wallet);
 
-let contract = ChainColorABI::new(contract_address.clone(), Arc::new(client.clone()));
+let contract = ColorChainABI::new(contract_address.clone(), Arc::new(client.clone()));
 
 let prequery = contract.get_color().call().await.unwrap();
 
@@ -382,7 +382,7 @@ let contract_address: Address = chain_color_contract.to_string().parse().unwrap(
 
 let client = SignerMiddleware::new(provider, wallet);
 
-let contract = ChainColorABI::new(contract_address.clone(), Arc::new(client.clone()));
+let contract = ColorChainABI::new(contract_address.clone(), Arc::new(client.clone()));
 
 let tx = contract.set_color(_r.into(), _g.into(), _b.into()).send().await.unwrap().await.unwrap();
 
