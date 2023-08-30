@@ -209,7 +209,14 @@ func get_address():
 
 ## Interacting with Blockchains
 
-Ethers-rs is capable of many things, and I invite you to [read the documentation](https://docs.rs/ethers/latest/ethers/) to learn more about what you can do.  First, I'll go over some basic functions, such as retrieving the player's address and gas balance:
+Ethers-rs is capable of many things, and I invite you to [read the documentation](https://docs.rs/ethers/latest/ethers/) to learn more about what you can do.  First, I'll go over some basic functions, such as retrieving the player's address and gas balance.
+
+Most Ethers-rs function calls will involve instantiating the wallet from the private key, setting up the connection to an RPC node, performing some kind of operation, then reporting the result back to gdscript.
+
+Async functions need to "call back" into Godot, which is accomplished by telling the Godot Rust library which kind of node it will be calling to, and which function it will call.  That function call is executed within a Rust-unsafe block.
+
+Much of your effort will involve converting between Godot's data types and Ethers' data types.  This will require some experimentation on your part, as Godot has trouble passing large unsigned integers, and sometimes the blockchain will give you values in hex that you will need to decode.  It is easiest to pass u64 and strings into Rust, and easiest to pass strings back into gdscript.
+
 
 ```
 #[method]
@@ -284,6 +291,10 @@ On the gdscript side, it's important to set up error handling, because transacti
 
 ### Reading
 
+To "call back" into gdscript, you will need to convert the value's data type into a Variant.
+
+For structs, you will need to first turn the struct into a JSON string, then pass the JSON as a Variant.  From gdscript you can then use the parse_json() function to get usable values.
+
 ```
 #[method]
 #[tokio::main]
@@ -324,11 +335,7 @@ NewFuture(Ok(()))
 }
 ```
 
-To read back into gdscript, you will need to convert the type into a variant.
-for structs, you will need to turn it into a json
-then use the parse_json function from gdscript
-
-sometimes you will need to convert from hex into the desired value
+Sometimes you will need to convert from hex into the desired value.  For example, once you have your parsed JSON in gdscript, you can use the hex_to_int() function to convert uint256 values into a usable form.
 
 
 ### Writing
