@@ -234,7 +234,7 @@ Most Ethers-rs function calls will involve instantiating the wallet from the pri
 
 To update variables on the gdscript side, Rust async functions need to "call back" into Godot, which is accomplished by telling the Godot Rust library which kind of node it will be calling to, and which function it will call.  That function call is executed within a Rust-unsafe block.
 
-Much of your effort will involve converting between Godot's data types and Ethers' data types.  This will require some experimentation on your part, as Godot has trouble passing large unsigned integers, and sometimes the blockchain will give you values in hex that you will need to decode.  EVM blockchains also cannot handle decimals, you will need to convert decimal values into whole numbers, then convert back to decimal once the blockchain operation has been completed.
+Much of your effort will involve converting between Godot's data types and Ethers' data types.  This will require some experimentation on your part, as Godot has trouble passing large unsigned integers, and sometimes the blockchain will give you values in hex that you will need to decode.  EVM blockchains also cannot handle decimals.  You will need to convert decimal values into whole numbers, then convert back to decimals once the blockchain operation has been completed.
 
 It is easiest to pass u64 and strings into Rust, and easiest to pass strings (as Variants) back into gdscript.
 
@@ -411,7 +411,7 @@ The cube's color will change to whichever color has been submitted.  Because eve
 
 ## Exporting the Project
 
-When exporting your game, you will need to compile the Godot Rust library for the target system.  This is most easily achieved by compiling on the target system itself.  Cross-compilation is also possible, but is outside the scope of this guide.  Please refer to the Godot Rust docs for more information.
+When exporting your game, you will need to compile the Godot Rust library for the target system.  This is most easily achieved by compiling on the target system itself.  Cross-compilation is also possible, but is outside the scope of this guide.  Please [refer to the Godot Rust docs](https://godot-rust.github.io/book/gdnative/export/index.html) for more information.
 
 
 
@@ -479,7 +479,7 @@ In addition, do not put secrets in your Godot code, as these can be easily extra
 
 Also be aware of the computational power of the chain.   In the familiar server model, the server's owner bears the cost of computation.  On a blockchain, the user must use gas to pay for computation on demand.
 
-Each block can perform simple validations and record modest amounts of data, they are not intended for heavy computation or data ingestion.  Ignoring this rule will make your contract unusable, due to the extreme expense of interacting with it.  
+Blocks can perform simple validations and record modest amounts of data.  They are not intended for heavy computation or data ingestion.  Ignoring this rule will make your contract unusable, due to the extreme expense of interacting with it.  
 
 
 
