@@ -192,7 +192,7 @@ It is highly recommended that you not only [read the documentation](https://docs
 
 Once written, smart contracts are deployed on-chain, where their functions can be called by anyone who has permissions to call them.  All characteristics of a contract — its variables, its functions, its permissions — are fixed at the moment of deployment, and cannot be changed unless the contract has been coded to allow specific changes.
 
-There are certain patterns, such as the [Diamond pattern](https://www.quicknode.com/guides/ethereum-development/smart-contracts/the-diamond-standard-eip-2535-explained-part-1) and [Proxy patterns](https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies), that allow for post-deployment changes, with the cost of eroding the previously-stated benefits, as such contracts are no longer fully immutable.  Such contracts often keep their core logic immutable, to prevent tampering, or rely on a multisignature security mechanism that prevents changes unless a majority of trusted signers agree to the change.
+There are certain patterns, such as the [Diamond pattern](https://www.quicknode.com/guides/ethereum-development/smart-contracts/the-diamond-standard-eip-2535-explained-part-1) and [Proxy patterns](https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies), that allow for post-deployment changes, with the cost of eroding the previously-stated benefits, as such contracts are no longer fully immutable.  Such contracts often keep their _core logic_ immutable, to prevent tampering, or rely on a multisignature security mechanism that prevents changes unless a majority of trusted signers agree to the change.
 
 Some contracts also contain safety features, such as a developer-controlled pause function, to temporarily shut down operations if an exploit is detected.
 
@@ -207,6 +207,10 @@ Competitive multiplayer games are designed with the expectation that players wil
 Players can also gain an unfair advantage by reading information from the server that their game client otherwise tries to hide from them, such as the location and status of other players.
 
 Imagine the blockchain environment as one massive multiplayer game, and always assume that there are players looking to break the game.  Always assume an adversarial mindset when drafting your smart contracts.  How might your contract be gamed by a bot, or cleverly exploited?  What requirements and restrictions can you impose to protect your game's mechanics?  How exposed is your contract to trust assumptions, and how can you eliminate them?
+
+## Don't Trust Local Validation
+
+Likewise, you cannot rely on your game application to protect your smart contract.  Your game can be coded to _help_ players format complex transactions, manage data between sessions, and protect players from submitting the wrong values by mistake, but your smart contract should not be coded to fully trust the output of your game.  Players could modify the code of their copy of the game, and get it to do things you did not intend, such as submitting faulty inputs to your contract.  Make sure your contract is coded to only accept the ranges of values that you want.  In addition, do not put secrets in your Godot code, as these can be easily extracted.  
 
 
 
