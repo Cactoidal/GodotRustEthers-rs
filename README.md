@@ -137,7 +137,7 @@ impl ColorChain {
 godot_init!(init);
 ```
 ### 6. 
-Once you've written your library, compile it with `cargo build`.  You'll find the compiled Rust library file in target/debug (.dylib for Mac, .dll for Windows, and .so for Linux).  Drag it into your Godot project's main folder, then import it into Godot with the following steps:
+Once you've written your library, compile it with `cargo build`.  If you're newer to Rust, please note that the uncompiled file will be over 1 GB!  The compiled library will be around 26 MB.  You'll find the compiled Rust library file in target/debug (.dylib for Mac, .dll for Windows, and .so for Linux).  Drag it into your Godot project's main folder, then import it into Godot with the following steps:
 
 * Create a GDNative library resource, and link it to your compiled Rust library file under the target system.
 
@@ -402,7 +402,7 @@ NewFuture(Ok(()))
 
 I've provided a small project as an example.  To use it, [clone the ColorChain folder](https://github.com/Cactoidal/GodotRustEthers-rs/tree/main/ColorChain), then compile the Rust library.  Drag the compiled library out of target/debug into the main ColorChain folder, import it into the game by [following the steps above](https://github.com/Cactoidal/GodotRustEthers-rs/tree/main#6), then run the game.
 
-Copy the address that is generated for you, mine some gas from the [Sepolia PoW faucet](https://sepolia-faucet.pk910.de/) (this may take around 10 minutes), then choose a color for the cube and submit the transaction.
+Copy the address that is generated for you, and mine 0.05 sepETH from the [Sepolia PoW faucet](https://sepolia-faucet.pk910.de/).  This may take around 20 minutes.  I picked this faucet because it is permissionless.  To combat bots, most other faucets require some kind of social proof, such as a Twitter or Discord account, or a web wallet.  You can read more about [how the faucet works here](https://github.com/pk910/PoWFaucet/wiki). Once you have gas, choose a color for the cube and submit the transaction.
 
 The cube's color will change to whichever color has been submitted.  Because every copy of this sample game uses the same smart contract, every player will see the same cube, and other players will see the color you picked (and can overwrite the color if they wish!)
 
