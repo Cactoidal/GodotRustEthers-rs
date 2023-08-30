@@ -8,7 +8,7 @@ In this guide, you will learn how to create and use a [Godot Rust](https://githu
 
 If you are already familiar with Godot Rust and just want to try the example project, [jump to the ColorChain section](https://github.com/Cactoidal/GodotRustEthers-rs/tree/main/ColorChain).
 
-The example in this guide uses a [pre-deployed smart contract](https://github.com/Cactoidal/GodotRustEthers-rs/blob/main/ColorChain.sol).  If you are new to smart contracts and want a brief overview of what they are, and some design considerations to keep in mind when creating them for use in games, please refer to [the section at the end of this guide](https://github.com/Cactoidal/GodotRustEthers-rs/tree/main#smart-contracts-and-game-design).
+The example in this guide uses a [pre-deployed smart contract](https://github.com/Cactoidal/GodotRustEthers-rs/blob/main/ColorChain.sol).  If you are new to smart contracts and want a brief overview of what they are, or if you are interested in design considerations when creating them for use in games, please refer to [the section at the end of this guide](https://github.com/Cactoidal/GodotRustEthers-rs/tree/main#smart-contracts-and-game-design).
 
 
 ### WARNING:
