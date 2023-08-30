@@ -56,7 +56,7 @@ openssl = "0.10.52"
 
 
 
-6. Once you've written your library, compile it, then import it into Godot with the following steps:
+6. Once you've written your library, compile it with `cargo build`, then import it into Godot with the following steps:
 
 * Create a GDNative library resource, and link it to your compiled library file.
 
