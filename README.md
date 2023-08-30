@@ -91,9 +91,9 @@ impl ColorChain {
 godot_init!(init);
 ```
 
-6. Once you've written your library, compile it with `cargo build`, then import it into Godot with the following steps:
+6. Once you've written your library, compile it with `cargo build`.  You'll find the compiled library file in target/debug (.dylib for Mac, .so for Linux, and .dll for Windows).  Drag it into your Godot project's main folder, then import it into Godot with the following steps:
 
-* Create a GDNative library resource, and link it to your compiled library file.
+* Create a GDNative library resource, and link it to your compiled library file under the target system.
 
 * Create a GDNative script, and link it to a class defined in your library.
 
