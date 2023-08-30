@@ -295,7 +295,7 @@ Note that you can use Ethers-rs to interact with any EVM chain, simply by passin
 
 ## Smart Contracts
 
-You can interact with a specific smart contract by providing its ABI to your Godot Rust library.  The `abigen!` macro is the easiest way to do this, which simply takes an ABI.json and creates a contract object your library can interact with:
+You can interact with a specific smart contract by providing its ABI to your Godot Rust library.  The `abigen!` macro is the easiest way to do this.  It simply takes an ABI.json and creates a contract object your library can interact with:
 
 ```
 abigen!(
@@ -307,7 +307,7 @@ abigen!(
 
 Read and write functions are very similar in setup, but have outcomes that need to be handled differently.  In both cases, you will need to instantiate the player's wallet, select the appropriate chain and provide an RPC URL, create the contract object, convert any parameters from Godot types into Ethers types, then call the smart contract function using its name and parameters listed in the ABI.  
 
-On the gdscript side, it's important to set up error handling, because transactions do fail, due to RPC node downtime, lack of gas, invalid input, and so on.
+On the gdscript side, it's important to set up error handling, because transactions do fail, due to RPC node downtime, lack of gas, invalid input, and so on.  The player needs some kind of feedback so they aren't just sitting around waiting for a transaction that isn't actually happening.
 
 
 ### Reading
