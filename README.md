@@ -57,20 +57,47 @@ hex = "0.4.3"
 openssl = "0.10.52"
 ```
 
-5. Set up lib.rs by declaring classes and their methods, then initializing.
+5. Set up lib.rs by declaring classes and their methods, then initialize.  Because we're using tokio to handle the async nature of Ethers-rs, you will also need to create a pool for executing runtimes, [as is helpfully described in the Godot Rust docs](https://godot-rust.github.io/book/gdnative/recipes/async-tokio.html).
 
 ```
 use gdnative::{prelude::*, core_types::ToVariant};
 use ethers::{core::{abi::{struct_def::StructFieldType, AbiEncode}, types::*}, signers::*, providers::*, prelude::SignerMiddleware};
 use ethers_contract::{abigen};
 use std::{convert::TryFrom, sync::Arc};
+use tokio::runtime::{Builder, Runtime};
+use tokio::task::LocalSet;
 use tokio::macros::support::{Pin, Poll};
 use futures::Future;
 use serde_json::json;
 
+thread_local! {
+    static EXECUTOR: &'static SharedLocalPool = {
+        Box::leak(Box::new(SharedLocalPool::default()))
+    };
+}
+
+#[derive(Default)]
+struct SharedLocalPool {
+    local_set: LocalSet,
+}
+
+impl futures::task::LocalSpawn for SharedLocalPool {
+    fn spawn_local_obj(
+        &self,
+        future: futures::task::LocalFutureObj<'static, ()>,
+    ) -> Result<(), futures::task::SpawnError> {
+        self.local_set.spawn_local(future);
+
+        Ok(())
+    }
+}
+
 
 fn init(handle: InitHandle) {
-    handle.add_class::<ColorChain>();
+	gdnative::tasks::register_runtime(&handle);
+	gdnative::tasks::set_executor(EXECUTOR.with(|e| *e));
+
+    	handle.add_class::<ColorChain>();
 }
 
 #[derive(NativeClass, Debug, ToVariant, FromVariant)]
