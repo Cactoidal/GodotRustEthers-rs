@@ -95,13 +95,51 @@ Once you've written your library, compile it with `cargo build`.  You'll find th
 
 * Create a GDNative library resource, and link it to your compiled library file under the target system.
 
+<p align="center">
+<img width="1157" alt="create gdnlib" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/3e5f17b6-5c36-4da0-af64-1d5d87db604f">
+</p>
+
+<p align="center">
+<i>Make sure to save the resource with the .gdnlib extension.</i>
+</p>
+
+
 * Create a GDNative script, and link it to a class defined in your library.
 
-* Now go to Autoload in Project Settings, and enable the GDNative script you just created.
+<p align="center">
+<img width="362" alt="create nativescript" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/1f8e5ab3-0901-49c5-882f-87f80471988e">
+</p>
 
+<p align="center">
+<i>The Class Name needs to match the name of the class you defined in your compiled Rust library.</i>
+</p>
 
-7. You can now call your Godot Rust library from anywhere by using the name of the class and the name of the method you want to call.
+* Now link the script to the .gdnlib library itself.
 
+<p align="center">
+<img width="289" alt="set library" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/058e9560-c018-454f-a1e0-bb350a758951">
+</p>
+
+<p align="center">
+<i>Under Library, load the .gdnlib resource.</i>
+</p>
+
+* Now go to Autoload in Project Settings, and enable the GDNative (.gdns) script you just created.
+
+<p align="center">
+<img width="893" alt="set autoload" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/acb0946d-9cda-4129-b653-7da532ad19cb">
+</p>
+
+<p align="center">
+<i>You will probably need to quit and relaunch the Godot editor for this change to take effect.</i>
+</p>
+
+7. You can now call your Godot Rust library from anywhere by using the name of the class and the name of the method you want to call.  For example:
+
+```
+func refresh_balance():
+	ColorChain.get_balance(user_address, sepolia_rpc, self)
+```
 
 ## Private Keys
 
