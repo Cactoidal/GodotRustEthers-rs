@@ -15,7 +15,7 @@ The example in this guide uses a [pre-deployed smart contract](https://github.co
 **As with any game engine, Godot has OS-level functions, and you should not download games from sources you do not trust.  This is especially true when combining crypto with games, as crypto security can be easily compromised by malicious programs.  Business involving personal custody of funds and valuables should be conducted on a secure device devoted to that purpose, not on a computer used for playing games.**
 
 ### WARNING:
-**This guide was created for educational purposes, for use in experimentation, game jams, and hackathons.  The process described here has not been independently audited, and should not be used in production without thorough examination of the underlying mechanisms.  Use at your own risk.**
+**This guide was created for educational purposes, for use in experimentation, game jams, and hackathons.  The process described here has not been independently audited, may eventually become out-of-date, and should not be used in production without thorough examination of the underlying mechanisms.  Use at your own risk.**
 
 
 ## Setting up Godot Rust
