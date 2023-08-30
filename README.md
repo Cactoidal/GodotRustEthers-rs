@@ -296,7 +296,7 @@ NewFuture(Ok(()))
 }
 ```
 
-Please note that you will need gas to send write transactions.  Testnet gas is available from faucets, such as the Sepolia PoW faucet.
+Please note that you will need gas to send write transactions.  Testnet gas is available from faucets, such as the [Sepolia PoW faucet](https://sepolia-faucet.pk910.de).
 
 
 
