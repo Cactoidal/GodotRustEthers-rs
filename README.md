@@ -213,7 +213,7 @@ Ethers-rs is capable of many things, and I invite you to [read the documentation
 
 Most Ethers-rs function calls will involve instantiating the wallet from the private key, setting up the connection to an RPC node, performing some kind of operation, then reporting the result back to gdscript.
 
-Async functions need to "call back" into Godot, which is accomplished by telling the Godot Rust library which kind of node it will be calling to, and which function it will call.  That function call is executed within a Rust-unsafe block.
+To update variables on the gdscript side, Rust async functions need to "call back" into Godot, which is accomplished by telling the Godot Rust library which kind of node it will be calling to, and which function it will call.  That function call is executed within a Rust-unsafe block.
 
 Much of your effort will involve converting between Godot's data types and Ethers' data types.  This will require some experimentation on your part, as Godot has trouble passing large unsigned integers, and sometimes the blockchain will give you values in hex that you will need to decode.  EVM blockchains also cannot handle decimals, you will need to convert decimal values into whole numbers, then convert back to decimal once the blockchain operation has been completed.
 
