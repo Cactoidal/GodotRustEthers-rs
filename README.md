@@ -192,7 +192,7 @@ It is highly recommended that you not only read the documentation, but read abou
 
 Once written, smart contracts are deployed on-chain, where their functions can be called by anyone who has permissions to call them.  All characteristics of a contract — its variables, its functions, its permissions — are fixed at the moment of deployment, and cannot be changed unless the contract has been coded to allow specific changes.
 
-There are certain patterns, such as the Diamond pattern and Proxy pattern, that allow for post-deployment changes, with the cost of eroding the previously-stated benefits, as such contracts are no longer fully immutable.  Such contracts often keep their core logic immutable, to prevent tampering, or rely on a multisignature security mechanism that prevents changes unless a majority of trusted signers agree to the change.
+There are certain patterns, such as the [Diamond pattern](https://www.quicknode.com/guides/ethereum-development/smart-contracts/the-diamond-standard-eip-2535-explained-part-1) and [Proxy patterns](https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies), that allow for post-deployment changes, with the cost of eroding the previously-stated benefits, as such contracts are no longer fully immutable.  Such contracts often keep their core logic immutable, to prevent tampering, or rely on a multisignature security mechanism that prevents changes unless a majority of trusted signers agree to the change.
 
 Some contracts also contain safety features, such as a developer-controlled pause function, to temporarily shut down operations if an exploit is detected.
 
@@ -238,8 +238,7 @@ to trustlessly execute code too complex for the blockchain (or containing secret
 
 
 * And finally,
-homomorphic encryption
-a way of performing operations directly on secret values
+homomorphic encryption, a way of performing operations directly on secret values
 without revealing what those values are
 
 
@@ -247,7 +246,7 @@ without revealing what those values are
 
 ## Testing
 
-You can use a webwallet like Metamask and a browser IDE like Remix to quickly deploy and test contracts of your own.  Hardhat, Brownie, and Truffle are also available for deploying and testing.  Remember to keep your developer key separate from your other keys, and never use it for anything other than testing.
+You can use a webwallet like [Metamask](https://metamask.io) and a browser IDE like [Remix](https://remix.ethereum.org) to quickly deploy and test contracts of your own.  [Hardhat](https://github.com/NomicFoundation/hardhat), [Brownie](https://github.com/eth-brownie/brownie), and [Truffle](https://trufflesuite.com) are also available for deploying and testing.  Remember to keep your developer key separate from your other keys, and never use it for anything other than testing.
 
 
 
