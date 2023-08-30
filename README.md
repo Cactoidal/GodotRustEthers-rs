@@ -499,7 +499,7 @@ You can use a webwallet like [Metamask](https://metamask.io) and a browser IDE l
 
 The following things are outside the scope of this guide, but are of personal interest for their potential application in games, and could be subjects of further experimentation:
 
-* The use of zero knowledge proofs to prove the player has obtained some kind of secret information (such as the answer to a puzzle) without revealing what that information is.  The player can pass this proof to an on-chain prover, and cause a state change if their proof is valid.  [Zokrates](https://github.com/Zokrates/ZoKrates) and [Arkworks](https://github.com/arkworks-rs/) are two experimental Rust projects used for generating ZKP circuits, while [circom](https://docs.circom.io) is a lower level circuit generating language with a compiler written in Rust.
+* The use of zero knowledge proofs to prove the player has obtained some kind of secret information (such as the answer to a puzzle) without revealing what that information is.  The player can pass this proof to an on-chain prover, and cause a state change if their proof is valid. [ZoKrates](https://github.com/Zokrates/ZoKrates) and [circom](https://docs.circom.io) are lower level circuit generating languages with compilers written in Rust, while [Arkworks](https://github.com/arkworks-rs/) is a Rust project used for generating and proving ZKP circuits.
 
 * Passing secrets to a specific individual by encrypting the secret using their public key.  That person will be able to decrypt the secret using their private key.  To do this, you could use encryption crates like [openssl](https://github.com/sfackler/rust-openssl) and [secp256k1](https://docs.rs/secp256k1/latest/secp256k1/) to generate a shared secret.
 
