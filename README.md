@@ -36,13 +36,14 @@ To reiterate,
 
 
 ```
+[lib]
 crate-type = ["cdylib"]
 
 [dependencies]
 gdnative = { version = "0.11", features = ["async"] }
 ethers = "2.0.4"
 ethers-contract = "2.0.4"
-tokio = { version = "1.28.1, features = ["full] }
+tokio = { version = "1.28.1", features = ["full"] }
 ```
 
 
