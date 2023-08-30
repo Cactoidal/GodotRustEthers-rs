@@ -4,14 +4,14 @@ pragma solidity 0.8.18;
 contract ColorChain {
 
     struct Color {
-        uint16 r;
-        uint16 g;
-        uint16 b;
+        uint r;
+        uint g;
+        uint b;
     }
 
     Color public blockColor;
 
-    function setColor(uint16 _r, uint16 _g, uint16 _b) public {
+    function setColor(uint _r, uint _g, uint _b) public {
         require(_r >= 0 && _r <= 1000);
         require(_g >= 0 && _g <= 1000);
         require(_b >= 0 && _b <= 1000);
