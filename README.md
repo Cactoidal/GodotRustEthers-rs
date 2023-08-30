@@ -114,7 +114,7 @@ Note that you can use Ethers-rs to interact with any EVM chain, simply by passin
 
 ## Smart Contracts
 
-You can interact with a specific smart contract by providing its ABI to your Godot Rust library.  The abigen! macro is the easiest way to do this, which simply takes an ABI.json and creates a contract object your library can interact with:
+You can interact with a specific smart contract by providing its ABI to your Godot Rust library.  The `abigen!` macro is the easiest way to do this, which simply takes an ABI.json and creates a contract object your library can interact with:
 
 
 Read and write functions are very similar in setup, but have outcomes that need to be handled differently.  In both cases, you will need to instantiate the player's wallet, select the appropriate chain and provide an RPC URL, create the contract object, convert any parameters from Godot types into Ethers types, then call the function using its name and parameters listed in the ABI.  
@@ -208,7 +208,7 @@ Players can also gain an unfair advantage by reading information from the server
 
 Imagine the blockchain environment as one massive multiplayer game, and always assume that there are players looking to break the game.  Always assume an adversarial mindset when drafting your smart contracts.  How might your contract be gamed by a bot, or cleverly exploited?  What requirements and restrictions can you impose to protect your game's mechanics?  How exposed is your contract to trust assumptions, and how can you eliminate them?
 
-## Don't Trust Local Validation
+### Don't Trust Local Validation
 
 Likewise, you cannot rely on your game application to protect your smart contract.  Your game can be coded to _help_ players format complex transactions, manage data between sessions, and protect players from submitting the wrong values by mistake, but your smart contract should not be coded to fully trust the output of your game.
 
