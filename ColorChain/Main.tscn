@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Block.gd" type="Script" id=1]
+[ext_resource path="res://Main.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_unshaded = true
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
+flip_faces = true
+size = Vector3( 5, 5, 5 )
+
+[sub_resource type="SpatialMaterial" id=4]
+
+[sub_resource type="CubeMesh" id=3]
+material = SubResource( 4 )
+size = Vector3( 1, 1, 1 )
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Container" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.19674 )
+
+[node name="Block" type="MeshInstance" parent="."]
+transform = Transform( 0.984808, -0.0301537, -0.17101, 0, 0.984808, -0.173648, 0.173648, 0.17101, 0.969846, -0.725444, -0.15385, -1.01619 )
+mesh = SubResource( 3 )
+script = ExtResource( 1 )
+
+[node name="ColorPicker" type="ColorPicker" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -336.0
+margin_bottom = 462.0
+
+[node name="Send" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -209.0
+margin_top = -86.0
+margin_right = -122.0
+margin_bottom = -56.0
+mouse_default_cursor_shape = 2
+text = "Send Color"
+
+[node name="Address" type="LineEdit" parent="."]
+margin_right = 532.0
+margin_bottom = 29.0
+text = "0x0"
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Copy" type="Button" parent="."]
+margin_left = 44.0
+margin_top = 39.0
+margin_right = 143.0
+margin_bottom = 70.0
+mouse_default_cursor_shape = 2
+text = "Copy Address"
+
+[node name="GetGas" type="Button" parent="."]
+margin_left = 44.0
+margin_top = 82.0
+margin_right = 314.0
+margin_bottom = 116.0
+mouse_default_cursor_shape = 2
+text = "Get Gas (Opens Link for Sepolia PoW Faucet)"
+
+[node name="GasBalance" type="Label" parent="."]
+margin_left = 48.0
+margin_top = 132.0
+margin_right = 142.0
+margin_bottom = 146.0
+text = "Gas Balance: 0"
+
+[node name="Refresh" type="Button" parent="."]
+margin_left = 44.0
+margin_top = 160.0
+margin_right = 143.0
+margin_bottom = 191.0
+mouse_default_cursor_shape = 2
+text = "Refresh"
