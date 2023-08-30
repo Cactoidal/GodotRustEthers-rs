@@ -229,7 +229,7 @@ Each block can perform simple validations and record modest amounts of data, the
 
 
 
-### Keeping Secrets
+### Be Very Careful with Secrets
 
 Always know that anything you put on-chain is public, permanently, and cannot be erased from the chain's history.  Do not put information on-chain that should be secret (such as a player's position, in a competitive game).  There are certain techniques you can use to obscure secret information, such as the commit-reveal technique, where a player puts a hash on-chain and later validates the hash to prove it was made using certain values.
 
