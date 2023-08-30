@@ -56,10 +56,37 @@ hex = "0.4.3"
 openssl = "0.10.52"
 ```
 
-5. Set up your library by declaring classes and their methods, then initializing.
+5. Set up lib.rs by declaring classes and their methods, then initializing.
+
+```
+use gdnative::{prelude::*, core_types::ToVariant};
+use ethers::{core::{abi}};
+use ethers_contract::{abigen};
+use tokio::runtime::{Builder, Runtime};
+use tokio::macros::support::{Pin, Poll};
 
 
+fn init(handle: InitHandle) {
+    handle.add_class::<Ethers>();
+}
 
+#[derive(NativeClass, Debug, ToVariant, FromVariant)]
+#[inherit(Node)]
+struct Ethers;
+
+#[methods]
+impl Ethers {
+    fn new(_owner: &Node) -> Self {
+        Ethers
+    }
+
+//#[method] goes here
+
+
+}
+
+godot_init!(init);
+```
 
 6. Once you've written your library, compile it with `cargo build`, then import it into Godot with the following steps:
 
