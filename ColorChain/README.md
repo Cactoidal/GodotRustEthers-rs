@@ -1,4 +1,4 @@
-## ColorChain: Example Godot Rust - Ethers-rs Project
+## ColorChain: Example Godot Rust + Ethers-rs Project
 
 To try it, clone this repository, then compile the Rust library.  Drag the compiled library out of target/debug into the main ColorChain folder, import it into the game by [following these steps](https://github.com/Cactoidal/GodotRustEthers-rs/tree/main#6), then run the game.
 
