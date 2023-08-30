@@ -136,7 +136,7 @@ func get_address():
 	var file = File.new()
 	file.open("user://keystore", File.READ)
 	var content = file.get_buffer(32)
-	user_address = Ethers.get_address(content)
+	user_address = ColorChain.get_address(content)
 	file.close()
 ```
 
