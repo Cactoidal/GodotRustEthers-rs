@@ -91,7 +91,7 @@ impl ColorChain {
 godot_init!(init);
 ```
 ### 6. 
-Once you've written your library, compile it with `cargo build`.  You'll find the compiled Rust library file in target/debug (.dylib for Mac, .so for Linux, and .dll for Windows).  Drag it into your Godot project's main folder, then import it into Godot with the following steps:
+Once you've written your library, compile it with `cargo build`.  You'll find the compiled Rust library file in target/debug (.dylib for Mac, .dll for Windows, and .so for Linux).  Drag it into your Godot project's main folder, then import it into Godot with the following steps:
 
 * Create a GDNative library resource, and link it to your compiled Rust library file under the target system.
 
