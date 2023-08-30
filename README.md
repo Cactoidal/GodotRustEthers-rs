@@ -45,6 +45,7 @@ ethers = "2.0.4"
 ethers-contract = "2.0.4"
 tokio = { version = "1.28.1", features = ["full"] }
 serde = "1.0.163"
+serde_json = "1.0.96"
 futures = "0.3.28"
 ```
 
@@ -52,7 +53,6 @@ futures = "0.3.28"
 Useful utilities you may wish to add:
 
 ```
-serde_json = "1.0.96"
 hex = "0.4.3"
 openssl = "0.10.52"
 ```
@@ -61,25 +61,26 @@ openssl = "0.10.52"
 
 ```
 use gdnative::{prelude::*, core_types::ToVariant};
-use ethers::{core::{abi}};
+use ethers::{core::{abi::{struct_def::StructFieldType, AbiEncode}, types::*}, signers::*, providers::*, prelude::SignerMiddleware};
 use ethers_contract::{abigen};
-use tokio::runtime::{Builder, Runtime};
+use std::{convert::TryFrom, sync::Arc};
 use tokio::macros::support::{Pin, Poll};
 use futures::Future;
+use serde_json::json;
 
 
 fn init(handle: InitHandle) {
-    handle.add_class::<Ethers>();
+    handle.add_class::<ColorChain>();
 }
 
 #[derive(NativeClass, Debug, ToVariant, FromVariant)]
 #[inherit(Node)]
-struct Ethers;
+struct ColorChain;
 
 #[methods]
-impl Ethers {
+impl ColorChain {
     fn new(_owner: &Node) -> Self {
-        Ethers
+        ColorChain
     }
 
 //#[method] goes here
