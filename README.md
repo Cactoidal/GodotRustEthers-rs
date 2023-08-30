@@ -212,7 +212,7 @@ Imagine the blockchain environment as one massive multiplayer game, and always a
 
 Likewise, you cannot rely on your game application to protect your smart contract.  Your game can be coded to _help_ players format complex transactions, manage data between sessions, and protect players from submitting the wrong values by mistake, but your smart contract should not be coded to fully trust the output of your game.
 
-Players could modify the code of their copy of the game, and get it to do things you did not intend, such as submitting faulty inputs to your contract.  Make sure your contract is coded to only accept the ranges of values that you want.
+Players could modify the code of their copy of the game, and get it to do things you did not intend, such as submitting faulty inputs to your contract.  Contracts are also public, which means that someone can submit values to it without actually using your game application.  Make sure your contract is coded to only accept the ranges of values that you want, and that your functions are only usable in the context that you intend.
 
 In addition, do not put secrets in your Godot code, as these can be easily extracted.  
 
