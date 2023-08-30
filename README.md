@@ -1,4 +1,4 @@
-# GDNative Implementation of Ethers-rs
+# GDNative Implementation of Ethers-rs Using Godot Rust
 
 **This guide is written for Godot 3.5.**  
 
