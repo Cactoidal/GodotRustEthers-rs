@@ -234,6 +234,12 @@ Each block can perform simple validations and record modest amounts of data, the
 Always know that anything you put on-chain is public, permanently, and cannot be erased from the chain's history.  Do not put information on-chain that should be secret (such as a player's position, in a competitive game).  There are certain techniques you can use to obscure secret information, such as the commit-reveal technique, where a player puts a hash on-chain and later validates the hash to prove it was made using certain values.
 
 
+## Testing
+
+You can use a webwallet like [Metamask](https://metamask.io) and a browser IDE like [Remix](https://remix.ethereum.org) to quickly deploy and test contracts of your own.  [Hardhat](https://github.com/NomicFoundation/hardhat), [Brownie](https://github.com/eth-brownie/brownie), and [Truffle](https://trufflesuite.com) are also available for deploying and testing.  Remember to keep your developer key separate from your other keys, and never use it for anything other than testing.
+
+
+
 ### Areas of Interest
 
 
@@ -251,13 +257,3 @@ to trustlessly execute code too complex for the blockchain (or containing secret
 * And finally,
 homomorphic encryption, a way of performing operations directly on secret values
 without revealing what those values are
-
-
-
-
-## Testing
-
-You can use a webwallet like [Metamask](https://metamask.io) and a browser IDE like [Remix](https://remix.ethereum.org) to quickly deploy and test contracts of your own.  [Hardhat](https://github.com/NomicFoundation/hardhat), [Brownie](https://github.com/eth-brownie/brownie), and [Truffle](https://trufflesuite.com) are also available for deploying and testing.  Remember to keep your developer key separate from your other keys, and never use it for anything other than testing.
-
-
-
