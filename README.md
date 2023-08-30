@@ -203,16 +203,60 @@ Note that you can use Ethers-rs to interact with any EVM chain, simply by passin
 
 You can interact with a specific smart contract by providing its ABI to your Godot Rust library.  The `abigen!` macro is the easiest way to do this, which simply takes an ABI.json and creates a contract object your library can interact with:
 
+```
+abigen!(
+    ColorChain,
+    "./ColorChain.json",
+    event_derives(serde::Deserialize, serde::Serialize)
+);
+```
 
 Read and write functions are very similar in setup, but have outcomes that need to be handled differently.  In both cases, you will need to instantiate the player's wallet, select the appropriate chain and provide an RPC URL, create the contract object, convert any parameters from Godot types into Ethers types, then call the function using its name and parameters listed in the ABI.  
 
-important to set an error case
-because transactions do fail
-due to RPC node downtime, lack of gas, invalid input, and so on
+On the gdscript side, it's important to set up error handling, because transactions do fail, due to RPC node downtime, lack of gas, invalid input, and so on.
 
 
 ### Reading
 
+```
+#[method]
+#[tokio::main]
+async fn get_color(key: PoolArray<u8>, chain_id: u64, chain_color_address: GodotString, rpc: GodotString, ui_node: Ref<Control>) -> NewFuture {
+
+let vec = &key.to_vec();
+
+let keyset = &vec[..]; 
+
+let prewallet : LocalWallet = LocalWallet::from_bytes(&keyset).unwrap();
+    
+let wallet: LocalWallet = prewallet.with_chain_id(chain_id);
+
+let provider = Provider::<Http>::try_from(rpc.to_string()).expect("could not instantiate HTTP Provider");
+
+let contract_address: Address = chain_color_address.to_string().parse().unwrap();
+
+let client = SignerMiddleware::new(provider, wallet);
+
+let contract = ChainColor::new(contract_address.clone(), Arc::new(client.clone()));
+
+let prequery = contract.get_color().call().await.unwrap();
+
+let query = json!({
+    "r": prequery.r,
+    "g": prequery.g,
+    "b": prequery.b
+});
+
+let node: TRef<Control> = unsafe { ui_node.assume_safe() };
+
+unsafe {
+    node.call("set_color", &[query.to_string().to_variant()])
+};
+
+NewFuture(Ok(()))
+
+}
+```
 
 To read back into gdscript, you will need to convert the type into a variant.
 for structs, you will need to turn it into a json
@@ -222,6 +266,34 @@ sometimes you will need to convert from hex into the desired value
 
 
 ### Writing
+
+```
+#[method]
+#[tokio::main]
+async fn send_color(key: PoolArray<u8>, chain_id: u64, chain_color_contract: GodotString, rpc: GodotString, _r: u8, _g: u8, _b: u8) -> NewFuture {
+
+let vec = &key.to_vec();
+
+let keyset = &vec[..]; 
+     
+let prewallet : LocalWallet = LocalWallet::from_bytes(&keyset).unwrap();
+
+let wallet: LocalWallet = prewallet.with_chain_id(chain_id);
+
+let provider = Provider::<Http>::try_from(rpc.to_string()).expect("could not instantiate HTTP Provider");
+
+let contract_address: Address = chain_color_contract.to_string().parse().unwrap();
+
+let client = SignerMiddleware::new(provider, wallet);
+
+let contract = ChainColor::new(contract_address.clone(), Arc::new(client.clone()));
+
+let tx = contract.set_color(_r.into(), _g.into(), _b.into()).send().await.unwrap().await.unwrap();
+
+NewFuture(Ok(()))
+
+}
+```
 
 Please note that you will need gas to send write transactions.  Testnet gas is available from faucets, such as the Sepolia PoW faucet.
 
