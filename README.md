@@ -45,6 +45,7 @@ ethers = "2.0.4"
 ethers-contract = "2.0.4"
 tokio = { version = "1.28.1", features = ["full"] }
 serde = "1.0.163"
+futures = "0.3.28"
 ```
 
 
@@ -64,6 +65,7 @@ use ethers::{core::{abi}};
 use ethers_contract::{abigen};
 use tokio::runtime::{Builder, Runtime};
 use tokio::macros::support::{Pin, Poll};
+use futures::Future;
 
 
 fn init(handle: InitHandle) {
