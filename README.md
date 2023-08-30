@@ -215,7 +215,9 @@ Most Ethers-rs function calls will involve instantiating the wallet from the pri
 
 Async functions need to "call back" into Godot, which is accomplished by telling the Godot Rust library which kind of node it will be calling to, and which function it will call.  That function call is executed within a Rust-unsafe block.
 
-Much of your effort will involve converting between Godot's data types and Ethers' data types.  This will require some experimentation on your part, as Godot has trouble passing large unsigned integers, and sometimes the blockchain will give you values in hex that you will need to decode.  It is easiest to pass u64 and strings into Rust, and easiest to pass strings back into gdscript.
+Much of your effort will involve converting between Godot's data types and Ethers' data types.  This will require some experimentation on your part, as Godot has trouble passing large unsigned integers, and sometimes the blockchain will give you values in hex that you will need to decode.  EVM blockchains also cannot handle decimals, you will need to convert decimal values into whole numbers, then convert back to decimal once the blockchain operation has been completed.
+
+It is easiest to pass u64 and strings into Rust, and easiest to pass strings back into gdscript.
 
 
 ```
@@ -284,7 +286,7 @@ abigen!(
 );
 ```
 
-Read and write functions are very similar in setup, but have outcomes that need to be handled differently.  In both cases, you will need to instantiate the player's wallet, select the appropriate chain and provide an RPC URL, create the contract object, convert any parameters from Godot types into Ethers types, then call the function using its name and parameters listed in the ABI.  
+Read and write functions are very similar in setup, but have outcomes that need to be handled differently.  In both cases, you will need to instantiate the player's wallet, select the appropriate chain and provide an RPC URL, create the contract object, convert any parameters from Godot types into Ethers types, then call the smart contract function using its name and parameters listed in the ABI.  
 
 On the gdscript side, it's important to set up error handling, because transactions do fail, due to RPC node downtime, lack of gas, invalid input, and so on.
 
@@ -293,7 +295,7 @@ On the gdscript side, it's important to set up error handling, because transacti
 
 To "call back" into gdscript, you will need to convert the value's data type into a Variant.
 
-For structs, you will need to first turn the struct into a JSON string, then pass the JSON as a Variant.  From gdscript you can then use the parse_json() function to get usable values.
+For structs, you will need to first turn the struct into a JSON string using the `json!` macro, then pass the JSON as a Variant.  From gdscript you can then use the parse_json() function to get usable values.
 
 ```
 #[method]
@@ -340,6 +342,8 @@ Sometimes you will need to convert from hex into the desired value.  For example
 
 ### Writing
 
+Please note that you will need gas to send write transactions.  Testnet gas is available from faucets, such as the [Sepolia PoW faucet](https://sepolia-faucet.pk910.de).  Writing to the chain is otherwise straightforward, just pass the necessary parameters and call the smart contract function.
+
 ```
 #[method]
 #[tokio::main]
@@ -368,7 +372,7 @@ NewFuture(Ok(()))
 }
 ```
 
-Please note that you will need gas to send write transactions.  Testnet gas is available from faucets, such as the [Sepolia PoW faucet](https://sepolia-faucet.pk910.de).
+
 
 
 
