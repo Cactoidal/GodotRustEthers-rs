@@ -142,7 +142,7 @@ Once you've written your library, compile it with `cargo build`.  If you're newe
 * Create a GDNative library resource, and link it to your compiled Rust library file under the target system.
 
 <p align="center">
-<img width="1157" alt="create gdnlib" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/3e5f17b6-5c36-4da0-af64-1d5d87db604f">
+<img width="1157" alt="create gdnlib" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/28acb9b1-604f-4506-8deb-2fdf52ad186f">
 </p>
 
 <p align="center">
@@ -153,7 +153,7 @@ Once you've written your library, compile it with `cargo build`.  If you're newe
 * Create a GDNative script, and link it to a class defined in your Rust library.
 
 <p align="center">
-<img width="362" alt="create nativescript" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/1f8e5ab3-0901-49c5-882f-87f80471988e">
+<img width="362" alt="create nativescript" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/8557da16-ede8-420c-91b3-9ce03843eeca">
 </p>
 
 <p align="center">
@@ -163,7 +163,7 @@ Once you've written your library, compile it with `cargo build`.  If you're newe
 * Now link the script to the .gdnlib resource.
 
 <p align="center">
-<img width="289" alt="set library" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/058e9560-c018-454f-a1e0-bb350a758951">
+<img width="289" alt="set library" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/0c972b56-58b5-43ac-8f20-381144599f54">
 </p>
 
 <p align="center">
@@ -173,7 +173,7 @@ Once you've written your library, compile it with `cargo build`.  If you're newe
 * Go to Autoload in Project Settings, and enable the GDNative (.gdns) script you just created.
 
 <p align="center">
-<img width="893" alt="set autoload" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/acb0946d-9cda-4129-b653-7da532ad19cb">
+<img width="893" alt="set autoload" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/e324ee1e-d3eb-408b-a737-e1aa1f3926ee">
 </p>
 
 <p align="center">
@@ -398,7 +398,7 @@ NewFuture(Ok(()))
 
 ## ColorChain - a sample implementation:
 
-<img width="1021" alt="colorchain" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/52aab5b0-c7a0-4555-be55-168dcd5a3674">
+<img width="1021" alt="colorchain" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/ddfafde0-2d88-413c-87d0-6f81058c2133">
 
 I've provided a small project as an example.  To use it, [clone the ColorChain folder](https://github.com/Cactoidal/GodotRustEthers-rs/tree/main/ColorChain), import the project into Godot, then compile the Rust library.  Drag the compiled library out of target/debug into the main ColorChain folder, import it into the game by [following the steps above](https://github.com/Cactoidal/GodotRustEthers-rs/tree/main#6), then run the game.
 
