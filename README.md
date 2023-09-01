@@ -505,4 +505,4 @@ The following things are outside the scope of this guide, but are of personal in
 
 * The use of oracles to trustlessly execute code too complex and expensive for the blockchain (or which contains secret information), and the use of distributed databases to trustlessly store large amounts of game data.
 
-* And finally, homomorphic encryption, a way of performing operations directly on secret values without revealing what those values are.  There exist a few experimental crates that can do this.
+* And finally, homomorphic encryption, a way of performing operations directly on secret values without revealing what those values are.
