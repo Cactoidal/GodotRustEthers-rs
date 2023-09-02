@@ -6,4 +6,4 @@ Copy the address that is generated for you, and mine 0.05 sepETH from the [Sepol
 
 The cube's color will change to whichever color has been submitted.  Because every copy of this sample game uses the same smart contract, every player will see the same cube, and other players will see the color you picked (and can overwrite the color if they wish!)
 
-<img width="1021" alt="colorchain" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/f86efbdc-798f-4145-8905-bb57536152aa">
+<img width="1021" alt="colorchain" src="https://github.com/Cactoidal/GodotRustEthers-rs/assets/115384394/3ffd7189-7cd5-48a2-8c02-d85d7936baad">
