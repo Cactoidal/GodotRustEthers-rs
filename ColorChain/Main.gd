@@ -5,7 +5,9 @@ var user_balance = "0"
 var block_color
 
 var sepolia_id = 11155111
-var sepolia_rpc = "https://endpoints.omniatech.io/v1/eth/sepolia/public"
+
+#If the RPC is down, you can find a list at https://chainlist.org/chain/11155111
+var sepolia_rpc = "https://ethereum-sepolia.publicnode.com"
 
 var color_chain_contract = "0x7321F4C834b368b7e4eFaF5A9381F77F906AcDF1"
 
