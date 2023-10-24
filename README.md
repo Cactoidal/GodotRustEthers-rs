@@ -422,6 +422,9 @@ When exporting your game, you will need to compile the Godot Rust library for th
 
 Every read and write causes the game to lag while it waits for a response from the RPC node.  Performance would be much better if transactions did not block the main thread, and if their outcomes were transmitted back to the main thread using a Signal or some other means.  Currently, I estimate the time it will take for a transaction to confirm, then have the game periodically check the blockchain until it observes a state change.  Advice on this front would be much appreciated.
 
+Update 10/23/2023:
+[This problem has been solved by sending transactions from gdscript instead of Rust.](https://github.com/Cactoidal/GodotEthersV2)  Rust can format the transaction, and gdscript can send it to the RPC node using HTTPRequest.  Signals handle the RPC node response.
+
 ### Receipts
 
 Ethers-rs transactions produce a receipt containing useful information like the transaction hash.  However, my current implementation just unwraps the expected result of the transaction.  It instead could be helpful to handle the receipt in a way the game can use, such as linking to a block explorer to look up the transaction hash.
